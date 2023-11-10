@@ -1,0 +1,14 @@
+//  sessionStorage.setItem('name','Kazi');
+//  localStorage.setItem('name','Ariyan');
+console.log(document);
+console.log(document.all[7]);
+console.log(document.all.length);
+console.log(document.URL);
+console.log(document.doctype);
+console.log(document.domain);
+console.log(document.head);
+console.log(document.forms[1]);
+console.log(document.forms[0].id);
+console.log(document.forms[0].className);
+console.log();
+console.log();

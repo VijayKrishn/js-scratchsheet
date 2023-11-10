@@ -403,3 +403,77 @@ function HomeAddress(street, city, pin) {
 }
 
 // Async
+console.log('Before');
+function fetchUser(){
+    setTimeout(function() {
+        console.log(`Hi my name is Vijay`);
+        return{
+            name : 'Goud',
+            age : 30,
+        };
+    },2000);
+}
+const usr = fetchUser();
+console.log(usr);
+console.log('After');
+//callback
+function fetchUser1(userId, callback){
+    setTimeout(function() {
+        console.log(`Hi my name is Vijay`);
+        const fetchedUser = {
+            id : userId,
+            name : 'A',
+            email : 'vijay@gmail.com',
+        };
+        callback(fetchedUser);
+    }, 2000);
+}
+fetchUser1(12345, function(user){
+    console.log(user);
+    sendMail(user.email,function(response){
+        console.log(response.success);
+    });
+});
+function sendMail(userEmail, callback) {
+    setTimeout(function(){
+        console.log(`sending email to ${userEmail}`);
+        const response = {success:true};
+        callback(response);
+    }, 3000);
+}
+// promises - alternative to callback
+const promise = new Promise(function(resolve, reject) {
+    setTimeout(() => {
+            // resolve(1);
+            reject(new Error('Hi there is some error'));
+        }, 2000);
+});
+console.log(promise);
+promise.then(function(result){
+    console.log(result);
+}).catch(function(err){
+    console.log(err.message);
+});
+
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(1), 2000);
+});
+const promise2 = new Promise((resolve, reject) => {
+    setTimeout(() => reject(new Error('There were some issues')), 2000);
+});
+Promise.all([promise1, promise2]).then((res) => console.log(res))
+    .catch((err) => console.log(err.message));
+
+// Fetch web API
+const gitAPI = fetch('https://api.github.com/users/andrew');
+gitAPI.then((res) => res.json())
+    .then((profile) => console.log(profile))
+    .catch((e) => e.message);
+console.log(gitAPI);
+// Async await
+async function getInfoFromGit(){
+    const res = await fetch('https://api.github.com/users/andrew');
+    const profile = await res.json();
+    console.log(profile);
+}
+getInfoFromGit();
