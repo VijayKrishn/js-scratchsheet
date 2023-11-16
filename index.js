@@ -477,3 +477,5 @@ async function getInfoFromGit(){
     console.log(profile);
 }
 getInfoFromGit();
+console.log(window);
+console.log(document);

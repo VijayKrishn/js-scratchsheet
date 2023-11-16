@@ -1,0 +1,6 @@
+DOM - Document Object Model
+querying the id inside document use document.find('#id')
+querying the class inside document use document.find('.class')
+querying for tag can be used document.find('tag')
+
+Events for buttons - click, dblclick, mousedown, mouseup, mouseleave, mouseenter, mousemove
