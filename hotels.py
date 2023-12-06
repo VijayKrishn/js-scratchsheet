@@ -2,7 +2,7 @@ import requests
 import json
 
 # Replace 'YOUR_API_KEY' with your actual Google API Key
-api_key = ****
+api_key = ******
 
 # Define the base URL for the Google Places API Nearby Search
 base_url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
